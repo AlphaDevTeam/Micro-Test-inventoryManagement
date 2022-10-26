@@ -1,0 +1,41 @@
+{
+  "applications": ["wikunum", "inventoryManagement"],
+  "changelogDate": "20221026215920",
+  "clientRootFolder": "inventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "order_details",
+  "fields": [
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderedQty",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "microserviceName": "inventoryManagement",
+  "name": "OrderDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "orderNumber",
+      "otherEntityName": "order",
+      "relationshipName": "order",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "itemCode",
+      "otherEntityName": "item",
+      "relationshipName": "item",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
