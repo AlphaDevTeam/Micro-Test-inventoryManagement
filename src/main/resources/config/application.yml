@@ -143,6 +143,11 @@ spring:
           destination: sse-topic
           content-type: text/plain
           group: inventory-management
+        binding-out-order-event:
+          destination: order-events-topic
+          content-type: application/json
+          group: inventory-management
+
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file

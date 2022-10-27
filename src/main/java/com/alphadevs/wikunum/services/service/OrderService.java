@@ -20,9 +20,11 @@ public class OrderService {
     private final Logger log = LoggerFactory.getLogger(OrderService.class);
 
     private final OrderRepository orderRepository;
+    private final OrderEventService orderEventService;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, OrderEventService orderEventService) {
         this.orderRepository = orderRepository;
+        this.orderEventService = orderEventService;
     }
 
     /**
@@ -33,7 +35,9 @@ public class OrderService {
      */
     public Order save(Order order) {
         log.debug("Request to save Order : {}", order);
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+        orderEventService.orderActivatedEvent(savedOrder);
+        return savedOrder;
     }
 
     /**

@@ -22,7 +22,7 @@ import tech.jhipster.config.h2.H2ConfigurationHelper;
 /**
  * Configuration of web application with Servlet 3.0 APIs.
  */
-@EnableBinding({ KafkaSseConsumer.class, KafkaSseProducer.class })
+@EnableBinding({ KafkaSseConsumer.class, KafkaSseProducer.class, KafkaOrderEventProducer.class })
 @Configuration
 public class WebConfigurer implements ServletContextInitializer {
 
